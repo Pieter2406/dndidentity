@@ -1,18 +1,18 @@
 import express from 'express';
+import path from 'path';
 
 const app = express();
-
-app.get('/', (req, res) => {
-  res.send('hello dndidentity guys');
-});
 
 app.listen(
   process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 2406,
   () => {
     console.log(
-      `server started at Port:${process.env.PORT ||
+      `server started at port ${process.env.PORT ||
         process.env.OPENSHIFT_NODEJS_PORT ||
         2406}`
     );
   }
 );
+
+// Serve frontend
+app.use('/', express.static(path.join(__dirname, '../public/dist')));
