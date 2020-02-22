@@ -5,7 +5,8 @@
   "main": "dist/index.js",
   "scripts": {
     "build:server": "tsc",
-    "build": "npm run build:server && cd public && npm install && npm run build",
+    "build:ui": "cd public && npm install && npm run build",
+    "build": "npm run build:server && npm run build:ui",
     "start": "node dist/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
