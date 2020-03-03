@@ -1,0 +1,88 @@
+App: DnDIdentity
+	Epics:
+		* DnDCharacterAssistant
+		* DnDCombatAssistant
+DnDIdentity.com:
+As a User (if not logged in) I see an overview page with statistics and functionalitites of the app
+
+my.DnDIdentity.com
+Must Have
+- As a User i can create a character
+- As a User i can login to DnDIdentity and will see my profile with my characters.
+- As a User i can select one of my characters.
+- As a User i see an overview of the functionalities (Quicklinks to DnDCharacterAssistant and DnDCombatAssistant)
+
+NiceToHave:
+As a User i can invite a friend in my friend list.
+
+
+Epic DnDCharacterAssistant
+
+	User Stories
+
+	Persona's
+		* Beginnende spelers
+		* Iemand die zijn eerste character maakt
+
+	Nen hoop vragen stellen om zo tot een "start" backstory 
+	te hebben waarvan vertrokken kan worden.
+
+	Vragenlijst --> Class + Race --> Vragenlijst --> Backstory + Class subclass	
+
+Spike: Kijken of dat charactersheet generation mogelijk is. en anders referentie/easy export import (API/...)?
+
+Epic DnDCombatAssistant
+
+DM --> Room
+Spelers --> Rooms joine
+
+Als DM --> Start encounter (roll initiative)
+Speler --> Roll initiative OF geef initiative in
+
+- Als DM kan ik een "room" maken en spelers uitnodigen tot deze room 
+- Als DM zie ik ne lijst met spelers, encounters en hun hp/max-hp (als ook statussen)
+- Als DM kan ik encounters toevoegen (onzichtbaar voor spelers)
+ Als Speler kan ik statussen zetten (prone / blind / hidden / ...)
+- Als Speler kan ik doorgeven hoeveel damage ik doe.
+- Als Speler kan ik zien welke encounters er zijn (zodat ik damage kan doen)
+- Als DM kan ik damage doen tegen spelers 
+ Als Speler kan ik een spell kiezen en "casten" zodat de DM ziet welke spell ik cast
+- Als Speler zie ik wanneer ik aan de beurt ben.
+- Als DM zie ik wanneer wie aan de beurt is.
+ 
+ Als DM wil ik encounters kunnen voorbereiden
+ 
+
+NEXT LEVEL ONREALISTISCHE SHIT:
+Augmented reality map scanning en spell range indicatoren.
+Bedrijfswagen
+
+Dependencies and requirements
+* Spells (--> database? van API https://www.dnd-spells.com/spells)
+* 
+
+
+Feature: CharacterSheet integration
+Als Speler zie ik hoeveel spellslots ik heb
+
+
+Technisce Architectuur
+
+* Administratieve shit en core splitsen
+* Administratieve shit:
+	- Aanmelden
+	- GDPR
+	- 
+* DocumentStore (Mongo?) --> Alles op Jonas zijn monster
+
+Frontend: 
+	* Vue
+	* React
+Backend:
+	* Node
+	* Python
+	* C++
+	* Java Springboot (Dries) NOPE
+
+	
+

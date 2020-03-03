@@ -1,6 +1,17 @@
 import Vue from 'vue';
-import Vuex from 'vuex';
+import { authStore } from './AuthStore';
+import Vuex, { MutationTree, ActionTree, StoreOptions } from 'vuex';
+import { IRootState } from './contract';
 
 Vue.use(Vuex);
 
-export default new Vuex.Store({});
+const mutations: MutationTree<IRootState> = {};
+const actions: ActionTree<IRootState, IRootState> = {};
+
+const storeOptions: StoreOptions<IRootState> = {
+  actions,
+  modules: { authStore },
+  mutations,
+};
+
+export default new Vuex.Store(storeOptions);

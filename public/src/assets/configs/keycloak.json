@@ -1,0 +1,11 @@
+{
+  "realm": "dndidentity",
+  "auth-server-url": "http://keycloak-keycloak.apps.openshift.jonasg.be/auth/",
+  "ssl-required": "external",
+  "resource": "dndidentity",
+  "public-client": true,
+  "confidential-port": 0,
+  "onLoad": "login-required",
+  "clientId": "dndidentity",
+  "url": "http://keycloak-keycloak.apps.openshift.jonasg.be/auth/"
+}
