@@ -1,9 +1,9 @@
-import { authStore } from './../store/AuthStore';
 import Vue from 'vue';
 import VueRouter, { RouteConfig } from 'vue-router';
 import AuthenticatedRoot from '../views/AuthenticatedRoot.vue';
 import Home from '../views/Home.vue';
 import store from '@/store';
+import CharacterView from '../views/CharacterView.vue';
 
 Vue.use(VueRouter);
 
@@ -16,6 +16,11 @@ const routes: RouteConfig[] = [
         name: 'authtest',
         path: '/authtest',
       },
+      {
+        component: CharacterView,
+        name: 'characters',
+        path: '/characters'
+      }
     ],
     component: Home,
     name: 'Home',
