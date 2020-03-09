@@ -2,7 +2,13 @@ export type Optional<T> = T | null;
 
 import { ICharacter } from '@/contracts/Character';
 
-export interface IRootState {}
+export interface IRootState {
+  socket: {
+    isConnected: boolean;
+    message: string;
+    reconnectError: boolean;
+  };
+}
 export interface IAuthState {
   userName: string;
   userState: any;
