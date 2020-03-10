@@ -38,6 +38,8 @@ app.post('/sendMessage', (req, res) => {
 
 app.post('/rooms/register', roomFacade.createRoom);
 
+app.post('/rooms/:roomId/join', roomFacade.joinRoom);
+
 initDB().then(() => {
   server.listen(
     process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 2406,

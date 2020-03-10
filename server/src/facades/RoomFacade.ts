@@ -9,9 +9,25 @@ class RoomFacade {
     const newRoom = await roomRepository.saveItem({
       dmId: req.body.dmId,
       playerIds: ['test1', 'test2'],
-      roomId: 'roomId',
     });
     res.send(newRoom);
+  }
+
+  public async joinRoom(req: Request, res: Response): Promise<void> {
+    if (!req.body.playerId || !req.params.roomId) {
+      res.sendStatus(400);
+      return;
+    }
+    try {
+      const room = await roomRepository.findItemById(req.params.roomId);
+      if (!room.playerIds.includes(req.body.playerId)) {
+        room.playerIds.push(req.body.playerId);
+      }
+      await roomRepository.saveItem(room);
+      res.send(room);
+    } catch (err) {
+      res.send(err);
+    }
   }
 }
 

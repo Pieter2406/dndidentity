@@ -18,4 +18,11 @@ export abstract class BaseRepository<T> {
     }
     return await this.MongooseModel.create(item);
   }
+
+  public async findItemById(id: string): Promise<T> {
+    if (!id) {
+      throw new Error('ivalid id');
+    }
+    return await this.MongooseModel.findOne({ _id: id });
+  }
 }
