@@ -26,13 +26,6 @@ wss.on('connection', (ws: WebSocket) => {
   ws.send(JSON.stringify({ message: 'ping' }));
 });
 
-// setInterval(() => {
-//   activeConnections.forEach(
-//     ws => ws.send(JSON.stringify({ message: 'ping' })),
-//     2000,
-//   );
-// });
-
 // Serve frontend
 app.use('/', express.static(path.join(__dirname, '../public/dist')));
 

@@ -12,10 +12,10 @@ export abstract class BaseRepository<T> {
     );
   }
 
-  public async saveItem(item: T): Promise<void> {
+  public async saveItem(item: T): Promise<T> {
     if (!item) {
       throw new Error('Invalid parameter');
     }
-    await this.MongooseModel.create(item);
+    return await this.MongooseModel.create(item);
   }
 }
