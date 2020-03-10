@@ -5,6 +5,8 @@ import * as http from 'http';
 import { userFacade } from './facades/UserFacade';
 import cors from 'cors';
 import bodyParser from 'body-parser';
+import { initDB } from './repositories/dbInitializer';
+import { roomFacade } from './facades/RoomFacade';
 
 const jsonParser = bodyParser.json();
 
@@ -37,19 +39,21 @@ app.use('/', express.static(path.join(__dirname, '../public/dist')));
 app.get('/helloworld', (req, res) => res.send('helloworld'));
 
 app.post('/sendMessage', (req, res) => {
-  console.log(activeConnections.join(', '));
-  console.log(req.body);
   activeConnections.forEach(ac => ac.send(JSON.stringify(req.body)));
   res.sendStatus(200);
 });
 
-server.listen(
-  process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 2406,
-  () => {
-    console.log(
-      `server started at port ${process.env.PORT ||
-        process.env.OPENSHIFT_NODEJS_PORT ||
-        2406}`,
-    );
-  },
-);
+app.post('/rooms/register', roomFacade.createRoom);
+
+initDB().then(() => {
+  server.listen(
+    process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 2406,
+    () => {
+      console.log(
+        `server started at port ${process.env.PORT ||
+          process.env.OPENSHIFT_NODEJS_PORT ||
+          2406}`,
+      );
+    },
+  );
+});
