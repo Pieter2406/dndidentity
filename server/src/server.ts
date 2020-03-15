@@ -7,6 +7,7 @@ import cors from 'cors';
 import bodyParser from 'body-parser';
 import { initDB } from './repositories/dbInitializer';
 import { roomFacade } from './facades/RoomFacade';
+import './init/kafkaConnector';
 
 const jsonParser = bodyParser.json();
 
