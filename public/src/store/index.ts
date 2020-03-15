@@ -1,8 +1,9 @@
 import Vue from 'vue';
+import Vuex, { ActionTree, MutationTree, StoreOptions } from 'vuex';
 import { authStore } from './AuthStore';
-import Vuex, { MutationTree, ActionTree, StoreOptions } from 'vuex';
 import { characterStore } from './CharacterStore';
 import { IRootState } from './contract';
+import { roomStore } from './RoomStore';
 
 Vue.use(Vuex);
 
@@ -23,7 +24,7 @@ const mutations: MutationTree<IRootState> = {
     state.socket.isConnected = false;
   },
   SOCKET_ONERROR(state, event) {
-    console.error(state, event);
+    return;
   },
   // default handler called for all methods
   SOCKET_ONMESSAGE(state, message) {
@@ -31,7 +32,7 @@ const mutations: MutationTree<IRootState> = {
   },
   // mutations for reconnect methods
   SOCKET_RECONNECT(state, count) {
-    console.info(state, count);
+    return;
   },
   SOCKET_RECONNECT_ERROR(state) {
     state.socket.reconnectError = true;
@@ -39,14 +40,13 @@ const mutations: MutationTree<IRootState> = {
 };
 const actions: ActionTree<IRootState, IRootState> = {
   sendMessage: ({}, message) => {
-    console.log(Vue.prototype.$socket);
     Vue.prototype.$socket.sendObj(message);
   },
 };
 
 const storeOptions: StoreOptions<IRootState> = {
   actions,
-  modules: { authStore, characterStore },
+  modules: { authStore, characterStore, roomStore },
   mutations,
   state: rootState,
 };

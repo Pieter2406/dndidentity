@@ -1,9 +1,12 @@
 import Vue from 'vue';
 import VueRouter, { RouteConfig } from 'vue-router';
-import AuthenticatedRoot from '../views/AuthenticatedRoot.vue';
-import Home from '../views/Home.vue';
+
 import store from '@/store';
+
+import AuthenticatedRoot from '../views/AuthenticatedRoot.vue';
 import CharacterView from '../views/CharacterView.vue';
+import Home from '../views/Home.vue';
+import Welcome from '../views/room/Welcome.vue';
 
 Vue.use(VueRouter);
 
@@ -19,8 +22,13 @@ const routes: RouteConfig[] = [
       {
         component: CharacterView,
         name: 'characters',
-        path: '/characters'
-      }
+        path: '/characters',
+      },
+      {
+        component: Welcome,
+        name: 'combatAssistant',
+        path: '/combatAssistant',
+      },
     ],
     component: Home,
     name: 'Home',

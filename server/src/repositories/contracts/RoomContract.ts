@@ -1,4 +1,5 @@
-export interface IRoomDBRepresentation {
+import { IBaseDBRepresentation } from './default';
+
+export interface IRoomDBRepresentation extends IBaseDBRepresentation {
   playerIds: string[];
-  dmId: string;
 }

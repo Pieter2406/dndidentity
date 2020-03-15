@@ -29,16 +29,13 @@ wss.on('connection', (ws: WebSocket) => {
 // Serve frontend
 app.use('/', express.static(path.join(__dirname, '../public/dist')));
 
-app.get('/helloworld', (req, res) => res.send('helloworld'));
-
 app.post('/sendMessage', (req, res) => {
   activeConnections.forEach(ac => ac.send(JSON.stringify(req.body)));
   res.sendStatus(200);
 });
 
-app.post('/rooms/register', roomFacade.createRoom);
-
 app.post('/rooms/:roomId/join', roomFacade.joinRoom);
+app.post('/api/rooms', roomFacade.createRoom);
 
 initDB().then(() => {
   server.listen(

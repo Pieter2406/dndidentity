@@ -19,3 +19,7 @@ export interface ICharacterState {
   activeCharacter: Optional<ICharacter>;
   characters: ICharacter[];
 }
+
+export interface IRoomState {
+  roomId: Optional<string>;
+}

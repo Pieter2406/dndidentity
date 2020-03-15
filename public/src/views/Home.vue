@@ -4,7 +4,6 @@
             <b-navbar-brand>DnDIdentity</b-navbar-brand>
         </b-navbar>
         <router-view />
-        <button @click="testSendMessage()">test</button>
         <footer>
             By: <br />
             Dries Maes <br />
@@ -30,12 +29,6 @@ export default class Home extends Vue {
 
     @Action
     public sendMessage!: (message: any) => void;
-
-    public async testSendMessage() {
-        console.log(this.sendMessage);
-        this.sendMessage({ test: 'test' });
-        await axios.post('http://localhost:2406/sendMessage', { test: 'test' });
-    }
 
     public get firstName() {
         return (
