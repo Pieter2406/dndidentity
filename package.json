@@ -23,7 +23,7 @@
     "keycloak-connect": "^9.0.0",
     "mongoose": "^5.9.4",
     "path": "^0.12.7",
-    "ws": "^7.2.3"
+    "ws": "^7.4.6"
   },
   "devDependencies": {
     "@types/cors": "^2.8.6",
