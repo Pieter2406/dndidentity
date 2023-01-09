@@ -19,7 +19,7 @@
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "kafka-node": "^5.0.0",
-    "keycloak-backend": "^2.0.0",
+    "keycloak-backend": "^3.0.0",
     "keycloak-connect": "^9.0.0",
     "mongoose": "^5.9.4",
     "path": "^0.12.7",
